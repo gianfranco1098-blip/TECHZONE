@@ -92,12 +92,16 @@
 
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
-    <input type="text" id="nombreContacto" placeholder="Nombre">
-    <input type="email" id="emailContacto" placeholder="Correo electrónico">
-    <textarea id="mensajeContacto" placeholder="Escribe tu mensaje"></textarea>
-    <button type="button" onclick="enviarContacto()">Enviar mensaje</button>
-    <div id="contacto-respuesta"></div>
+    <form id="formContacto" novalidate>
+      <input type="text" id="nombreContacto" name="nombre" placeholder="Nombre" required>
+      <input type="email" id="emailContacto" name="email" placeholder="Correo electrónico, por ejemplo: example@dominio.com" required>
+      <textarea id="mensajeContacto" name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+      <div id="contacto-respuesta"></div>
+    </form>
   </section>
+
+  <div id="alertaFlotante" class="alerta-flotante" role="status" aria-live="polite"></div>
 
   <footer>
     <h3>TechZone</h3>

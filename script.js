@@ -295,32 +295,59 @@ function finalizarCompra() {
     renderCarrito();
 }
 
-function enviarContacto() {
+function validarCorreo(correo) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+}
+
+function mostrarRespuesta(texto, tipo = 'exito') {
+    const respuesta = document.getElementById('contacto-respuesta');
+    if (!respuesta) return;
+
+    respuesta.textContent = texto;
+    respuesta.style.color = tipo === 'error' ? '#f87171' : '#34d399';
+}
+
+function mostrarAlertaFlotante(texto) {
+    const alerta = document.getElementById('alertaFlotante');
+    if (!alerta) return;
+
+    alerta.textContent = texto;
+    alerta.classList.add('show');
+
+    clearTimeout(mostrarAlertaFlotante.timeoutId);
+    mostrarAlertaFlotante.timeoutId = setTimeout(() => {
+        alerta.classList.remove('show');
+    }, 2600);
+}
+
+function enviarContacto(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    const form = document.getElementById('formContacto');
     const nombreInput = document.getElementById('nombreContacto');
     const emailInput = document.getElementById('emailContacto');
     const mensajeInput = document.getElementById('mensajeContacto');
-    const respuesta = document.getElementById('contacto-respuesta');
 
     const nombre = nombreInput?.value.trim() || '';
     const email = emailInput?.value.trim() || '';
     const mensaje = mensajeInput?.value.trim() || '';
 
     if (!nombre || !email || !mensaje) {
-        if (respuesta) {
-            respuesta.textContent = 'Completa todos los campos para enviar tu mensaje.';
-            respuesta.style.color = '#f87171';
-        }
+        mostrarRespuesta('Completa todos los campos para enviar tu mensaje.', 'error');
         return;
     }
 
-    if (respuesta) {
-        respuesta.textContent = `Gracias ${nombre}, pronto te responderemos.`;
-        respuesta.style.color = '#34d399';
+    if (!validarCorreo(email)) {
+        mostrarRespuesta('Ingresa un correo electrónico válido.', 'error');
+        return;
     }
 
-    if (nombreInput) nombreInput.value = '';
-    if (emailInput) emailInput.value = '';
-    if (mensajeInput) mensajeInput.value = '';
+    mostrarRespuesta(`Gracias ${nombre}, pronto te responderemos.`);
+    mostrarAlertaFlotante('¡Mensaje enviado con éxito!');
+
+    if (form) form.reset();
 }
 
 function seleccionarCategoria(categoria) {
@@ -386,6 +413,11 @@ function inicializar() {
                 agregarAlCarrito(Number(boton.dataset.id));
             }
         });
+    }
+
+    const formContacto = document.getElementById('formContacto');
+    if (formContacto) {
+        formContacto.addEventListener('submit', enviarContacto);
     }
 
     const listaCarrito = document.getElementById('lista');

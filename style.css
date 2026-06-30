@@ -327,6 +327,12 @@ section {
     gap: 15px
 }
 
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
 .contacto input,
 .contacto textarea {
     padding: 15px;
@@ -354,6 +360,27 @@ section {
 #contacto-respuesta {
     min-height: 24px;
     font-weight: 600
+}
+
+.alerta-flotante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #16a34a;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 999px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 3000;
+}
+
+.alerta-flotante.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {
