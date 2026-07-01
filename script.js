@@ -2,7 +2,7 @@ const productos = [
     {
         id: 1,
         nombre: 'iPhone 15 Pro',
-        precio: 3899,
+        precio: 2000,
         categoria: 'Celulares',
         imagen: 'https://celoff.com/wp-content/uploads/2026/01/71.png'
     },
@@ -15,22 +15,22 @@ const productos = [
     },
     {
         id: 3,
-        nombre: 'AirPods Pro',
-        precio: 999,
+        nombre: 'AirPods Pro 3 - Blanco ',
+        precio: 500,
         categoria: 'Audio',
         imagen: 'https://coolboxpe.vtexassets.com/arquivos/ids/515546/MTJV3AM-A_1.jpg?v=639180806491470000'
     },
     {
         id: 4,
         nombre: 'Galaxy Watch 6',
-        precio: 1299,
+        precio: 550,
         categoria: 'Smartwatch',
         imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2xlXsv0dnPhMvUGo3fZKxawgc9yJsDRyzEA&s'
     },
     {
         id: 5,
         nombre: 'PlayStation 5',
-        precio: 2799,
+        precio: 2199,
         categoria: 'Gaming',
         imagen: 'https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/4412/PMP20000216462/full_image-1.jpeg'
     },
@@ -58,7 +58,7 @@ const productos = [
     {
         id: 9,
         nombre: 'Auriculares Sony WH-1000XM4',
-        precio: 899,
+        precio: 150,
         categoria: 'Audio',
         imagen: 'https://media.falabella.com/falabellaPE/126067571_01/w=800,h=800,fit=pad'
     },
@@ -72,7 +72,7 @@ const productos = [
     {
         id: 11,
         nombre: 'iPad Pro 12.9"',
-        precio: 4299,
+        precio: 2199,
         categoria: 'Tablets',
         imagen: 'https://pe.nixblix.com/cdn/shop/files/iPad_Pro_Wi-Fi_12-9_in_6th_generation_Space_Gray_PDP_Image_Position-1b__MXLA.webp?v=1771338215&width=1024'
     },
