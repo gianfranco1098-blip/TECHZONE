@@ -298,7 +298,7 @@ function finalizarCompra() {
         return;
     }
 
-    mostrarMensaje('¡Compra finalizada con éxito!');
+    mostrarMensaje('¡Compra finalizada con éxito, Vuelva pronto!');
     carrito = [];
     descuentoAplicado = false;
     actualizarContador();
