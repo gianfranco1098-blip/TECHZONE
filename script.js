@@ -230,6 +230,11 @@ function cambiarCantidad(id, delta) {
     const nuevaCantidad = item.cantidad + delta;
 
     if (nuevaCantidad <= 0) {
+        const confirmarEliminacion = window.confirm(`¿Estás seguro de que quieres eliminar ${item.nombre} del carrito?`);
+        if (!confirmarEliminacion) {
+            return;
+        }
+
         carrito = carrito.filter(producto => producto.id !== id);
         mostrarMensaje('Producto eliminado del carrito');
     } else {
@@ -273,6 +278,11 @@ function aplicarCupon() {
 }
 
 function vaciar() {
+    const confirmarVaciado = window.confirm('¿Estás seguro de que quieres vaciar el carrito?');
+    if (!confirmarVaciado) {
+        return;
+    }
+
     carrito = [];
     descuentoAplicado = false;
     const cuponInput = document.getElementById('cupon');
